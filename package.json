@@ -1,0 +1,25 @@
+{
+  "name": "md-tex-notes",
+  "version": "0.0.1",
+  "description": "Note-taking with Markdown and LaTeX",
+  "main": "index.js",
+  "dependencies": {
+    "chokidar": "^3.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "",
+    "watch": "",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomassams/md-tex-notes.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tomassams/md-tex-notes/issues"
+  },
+  "homepage": "https://github.com/tomassams/md-tex-notes#readme"
+}
