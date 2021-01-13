@@ -6,16 +6,36 @@ const fs = require("fs");
 const spawn = childProcess.spawn;
 const exec = childProcess.exec;
 
-/**
- * File watcher
- */
-const watcher = chokidar.watch("**/*.md", {
-    ignored: [
-        /(^|[\/\\])\../, // ignore dotfiles
-        "node_modules",
-    ],
-    persistent: true,
-});
+const args = process.argv.slice(2);
+
+const build = () => {
+    console.log("This script has not been implemented yet.");
+};
+
+const watch = () => {
+    /**
+     * File watcher
+     */
+    const watcher = chokidar.watch("./markdown/**/*.md", {
+        ignored: [
+            /(^|[\/\\])\../, // ignore dotfiles
+            "node_modules",
+        ],
+        persistent: true,
+    });
+
+    /**
+     * Start listening for file changes
+     */
+    watcher
+        .on("change", (path) => compileMarkdownToPdf(path))
+        .on("error", (error) => console.log(`Watcher error: ${error}`))
+        .on("ready", () =>
+            console.log(
+                "Watcher active! Will auto-compile when changes are detected in the ./markdown directory."
+            )
+        );
+};
 
 /**
  * Create a folder path if it does not already exist
@@ -68,9 +88,15 @@ const runPandoc = (inputPath, outputPath) => {
 };
 
 /**
- * Start listening for file changes
+ * Handle arg input
  */
-watcher
-    .on("change", (path) => compileMarkdownToPdf(path))
-    .on("error", (error) => console.log(`Watcher error: ${error}`))
-    .on("ready", () => console.log("Watcher active! Will auto-compile when changes are detected in the ./markdown directory."));
+switch (args[0]) {
+    case "build":
+        build();
+        break;
+    case "watch":
+        watch();
+        break;
+    default:
+        break;
+}

@@ -11,4 +11,18 @@ A note-taking workflow combining writing quick and easy Markdown notes with a La
 
 ## usage
 
-todo
+Markdown is placed in the `markdown` folder, while the compiled pdfs are put in the `pdf` folder.  
+The scripts support nested folders and will maintain the same folder structure between the two.
+
+To compile everything in the markdown folder:
+
+```sh
+npm run build
+```
+
+To watch for changes and auto-compile on file save:
+
+```sh
+npm run watch
+```
+
