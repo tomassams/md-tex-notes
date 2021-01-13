@@ -26,3 +26,7 @@ To watch for changes and auto-compile on file save:
 npm run watch
 ```
 
+TeX Live supports hot-reloading the PDF when it changes:
+```sh
+texworks filename.pdf
+```
